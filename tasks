@@ -32,7 +32,24 @@
     БД надо сохранять еще куда-то файлом!!!
     структура:
         dates (id: int, date: date)
-        students (id: int, study_level_id: int
-        study_level (id: int, level: text)
-        payment (id: int, date_id: int, student_id: int, amount: int)
-        schedule (id: int, date_id: int, student_id: int, start: time, end: time
+        study_levels (id: int, level: text)
+        students (id: int,
+                  lastname: text,
+                  name: text,
+                  surname: text,
+                  birthday: date,
+                  email: text,
+                  messenger: text,
+                  study_platform: text,
+                  lesson_duration: int (in minutes),
+                  lesson_cost: float (in BYN),
+                  balance: float (in BYN) (при внесении платежа прибавлять сюда и реализовать проверку баланса через
+                  пересчет платежей относительно проведенных занятий 'уточнить/проверить' и проверку дублирования,
+                  сделать отмену внесенного в бд платежа и вычитания из баланса),
+                  study_level_id: int,
+                  is_stable: bool,
+                  schedules: text (формат "day time, day time", пример "MON 12:30, FRY 13:00" с парсингом в словарь),
+        contracts (id: int, student_id: int, number: ???, date_id: int)
+        telephone_numbers (id: int, student_id: int, description: text)
+        payments (id: int, date_id: int, student_id: int, amount: int)
+        lessons (id: int, date_id: int, student_id: int, start: time, end: time, cost: float, is_canceled: bool) минусовать из баланса
