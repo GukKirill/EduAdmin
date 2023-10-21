@@ -32,7 +32,22 @@
     БД надо сохранять еще куда-то файлом!!!
     структура:
         dates (id: int, date: date)
+
         study_levels (id: int, level: text)
+
+        group_statuses(id: int, status: text) - активна, завершена, закрыта, ...
+
+        groups(id: int,
+               title: text,
+               study_level_id: int,
+               group_status_id: int,
+               is_individual: bool,
+               lesson_duration: int (in minutes),
+               lesson_cost: float (in BYN),
+               is_stable: bool,
+               study_platform: text,
+               description: text)
+
         students (id: int,
                   lastname: text,
                   name: text,
@@ -40,16 +55,23 @@
                   birthday: date,
                   email: text,
                   messenger: text,
-                  study_platform: text,
-                  lesson_duration: int (in minutes),
-                  lesson_cost: float (in BYN),
-                  balance: float (in BYN) (при внесении платежа прибавлять сюда и реализовать проверку баланса через
+                  balance: float (in BYN) (при внесении платежа прибавлять сюда, реализовать проверку баланса через
                   пересчет платежей относительно проведенных занятий 'уточнить/проверить' и проверку дублирования,
                   сделать отмену внесенного в бд платежа и вычитания из баланса),
-                  study_level_id: int,
-                  is_stable: bool,
-                  schedules: text (формат "day time, day time", пример "MON 12:30, FRY 13:00" с парсингом в словарь),
-        contracts (id: int, student_id: int, number: ???, date_id: int)
-        telephone_numbers (id: int, student_id: int, description: text)
+                  description: text)
+
+        contracts (id: int, student_id: int, number: int, date_id: int, group_id: int)
+
+        telephone_numbers (id: int, telephone_number: text, student_id: int, description: text)
+
         payments (id: int, date_id: int, student_id: int, amount: int)
-        lessons (id: int, date_id: int, student_id: int, start: time, end: time, cost: float, is_canceled: bool) минусовать из баланса
+
+        student_statuses( id: int, status: text) - активен, завершил, ...
+
+        group_members (id: int, group_id: int, student_id: int, student_status_id: int, discount: int (in %), grade: text???)
+
+        schedules (id: int, group_id: int, day: text(MON, ...), start: time, end: time)
+
+        lesson_statuses (id: int, status: text) - отменено, завершено, ...
+
+        lessons (id: int, date_id: int, group_id_id: int, start: time, end: time, cost: float, lesson_status_id: int, ) минусовать из баланса
