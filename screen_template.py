@@ -18,9 +18,10 @@ class ScreenTemplate(Screen):
                                   )
         self.working_space = BoxLayout(orientation="horizontal")
         self._create_top_menu_buttons()
-        self.bottom_info = ColoredLabel((.29, .46, .66, 1),
+        self.bottom_info = ColoredLabel((255, 255, 255, 1),
                                         text="info about nearest lesson",
                                         size_hint=(1, 0.03),
+                                        color=(0, 0, 0, 1)
                                         )
         self.main_box.add_widget(self.top_menu)
         self.main_box.add_widget(self.working_space)
