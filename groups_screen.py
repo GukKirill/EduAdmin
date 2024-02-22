@@ -1,5 +1,5 @@
-from kivy.uix.screenmanager import ScreenManager, Screen
 from screen_template import ScreenTemplate
+from kivy.core.text import Label
 
 
 class GroupsScreen(ScreenTemplate):
