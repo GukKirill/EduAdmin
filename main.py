@@ -1,7 +1,5 @@
 from kivy.app import App
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import ScreenManager
 from schedule_screen import ScheduleScreen
 from groups_screen import GroupsScreen
 from students_screen import StudentsScreen
