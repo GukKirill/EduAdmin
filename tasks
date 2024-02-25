@@ -70,11 +70,11 @@
                   сделать отмену внесенного в бд платежа и вычитания из баланса),
                   description: text)
 
-        contracts (id: int, student_id: int, number: int, date_id: int, group_id: int)
+        contracts (id: int, student_id: int, number: int????, date_id: int, group_id: int)
 
         telephone_numbers (id: int, telephone_number: text, student_id: int, description: text)
 
-        payments (id: int, date_id: int, student_id: int, amount: int)
+        payments (id: int, date_id: int, student_id: int, amount: float)
 
         student_statuses( id: int, status: text) - активен, завершил, ...
 
@@ -84,4 +84,4 @@
 
         lesson_statuses (id: int, status: text) - отменено, завершено, ...
 
-        lessons (id: int, date_id: int, group_id_id: int, start: time, end: time, cost: float, lesson_status_id: int, ) минусовать из баланса
+        lessons (id: int, date_id: int, group_id: int, start: time, end: time, cost: float, lesson_status_id: int, ) минусовать из баланса
